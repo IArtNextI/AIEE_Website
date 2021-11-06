@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+    <script>
+        function check() {
+            n = document.getElementById('login');
+            p = document.getElementById('password');
+            if(n.value != '' && p.value != ''){
+                document.getElementById("loginform").submit();
+            }
+            if(n.value == ''){
+                n.className='form-control error';
+                setTimeout("n.className='form-control'", 5000);
+            }
+            if(p.value == ''){
+                p.className='form-control error';
+                setTimeout("p.className='form-control'", 5000);
+            }
+        }
+    </script>
+    <div class="m-holder">
+        <div class="m-task">
+            <div class="index-hello">
+                Welcome to Awesome English Exam Recording Application!
+            </div>
+            <div class="index-info">
+                Please login using following form:
+                <form id="loginform" action="" method="POST" style="margin-top: 10px">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="login">
+                            Login:
+                        </label>
+                        <input type="text" name="login" id="login" placeholder="Enter your login..." class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">
+                            Password:
+                        </label>
+                        <input type="password" name="password" id="password" placeholder="Enter your password" class="form-control">
+                    </div>
+                    <button type="button" onclick="check()" class="btn btn-success btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="m-task" style="padding: 5px; margin-top: 20px; height: auto">
+            Developed by: Artem Khromov, Stepan Balayan, Dmitry Vasilchenko
+        </div>
+    </div>
+{% endblock %}

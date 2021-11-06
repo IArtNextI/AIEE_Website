@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body class="m-back">
+    <iframe src="../static/sounds/Var1/6q.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+    </iframe>
+<!--    <audio id='anime' controls >
+        <source src="../static/sounds/Var2/1.mp3" type="audio/mpeg"> 
+    </audio> -->
+    <script>        
+        setTimeout(() => {
+            document.getElementById("iframeAudio").src = "../static/sounds/Var2/1q.mp3"
+        }, 9000)
+        setTimeout(() => {
+            document.getElementById("iframeAudio").src = "../static/sounds/Var2/2q.mp3"
+        }, 18000)
+/*        function blobToFile(theBlob, fileName) {
+            theBlob.lastModifiedDate = new Date();
+            theBlob.name = fileName;
+            return theBlob;
+        }
+        
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                    const mediaRecorder = new MediaRecorder(stream);
+                    setTimeout(() => {
+                        mediaRecorder.start();
+                        console.log("Started recording...");
+                    }, 3000);
+
+                    const audioChunks = [];
+                    mediaRecorder.addEventListener("dataavailable", event => {
+                        audioChunks.push(event.data);
+                    });
+
+                    mediaRecorder.addEventListener("stop", () => {
+                        let audioBlob = new Blob(audioChunks, { 'type' : 'audio/wav' });
+                        let anime = blobToFile(audioBlob, "anime.wav");
+                        let audioUrl = URL.createObjectURL(anime);
+                        let audio = new Audio(audioUrl);
+                        console.log(anime);
+                        console.log("Stopped recording...");
+                        audio.play();
+                        console.log("Replay started...");
+                        let link = document.createElement("a");
+                        link.href = audioUrl;
+                        link.download = 'anime.wav';
+                        link.innerHTML = "download file";
+                        document.body.appendChild(link); 
+                        let xhr = new XMLHttpRequest();
+                        xhr.open("POST", 'http://localhost:8000/anime', true);
+                        let b = new FormData();
+                        b.append("ind", anime, "anime.wav");
+                        console.log("Started uploading...");
+                        xhr.send(b);
+                    });
+
+                    setTimeout(() => {
+                        mediaRecorder.stop();
+                    }, 6000);
+                });*/
+    </script>
+</body>
+</html>
